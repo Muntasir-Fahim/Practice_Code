@@ -1,0 +1,14 @@
+Safiq 2 3.56
+Rafiq 9 4.00
+Rahim 3 3.56
+FafiZ 2 3.00
+Rafiq 9 3.56
+Karim 9 3.66
+Rafiq 2 3.76
+Safiq 2 3.56
+Rafiq 9 4.00
+Rahim 3 3.56
+FafiZ 2 3.00
+Rafiq 9 3.56
+Karim 9 3.66
+Rafiq 2 3.76

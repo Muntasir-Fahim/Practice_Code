@@ -1,0 +1,1 @@
+{"name":"Local: string_add","url":"f:\\Code\\Test\\string_add.cpp","tests":[{"id":1776520199692,"input":"10 15","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Code\\Test\\string_add.cpp","group":"local","local":true}

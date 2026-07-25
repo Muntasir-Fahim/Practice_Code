@@ -1,0 +1,1 @@
+{"name":"Local: uniquePrime","url":"f:\\Code\\Test\\uniquePrime.c","tests":[{"id":1783664655686,"input":"25622","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Code\\Test\\uniquePrime.c","group":"local","local":true}
