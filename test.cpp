@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>        
-//#include<vector>
+#include<vector>
 // #include<set>
 // #include<list>
 // #include<unordered_map>
@@ -11,18 +11,11 @@ using namespace std;
 
 int main() 
 {
-    string str1,str2,str,ref;
-    cin>>str1>>str2>>ref;
-    str = str1 + str2;
-    sort(str.begin(),str.end());
-    sort(ref.begin(),ref.end());
-
-    if(str == ref){
-        cout<<"YES";
-    }
-    else{
-        cout<<"NO";
-    }
-    
+    vector<int> v(3);
+    for(int i=0;i<3;i++){
+        cin>>v[i];
+    } 
+    sort(v.begin(),v.end());
+    cout<<(v[1]-v[0]) + (v[2]-v[1]);
     return 0;
 }
