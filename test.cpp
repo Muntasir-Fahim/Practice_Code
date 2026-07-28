@@ -1,7 +1,7 @@
 #include <iostream>
-#include <string>
-#include <algorithm>        
-#include<vector>
+// #include <string>
+// #include <algorithm>        
+// #include<vector>
 // #include<set>
 // #include<list>
 // #include<unordered_map>
@@ -11,17 +11,8 @@ using namespace std;
 
 int main() 
 {
-    int n;cin>>n;
-    vector<int>v(n);
-    for(int i=0; i<n; i++){
-        cin>>v[i];
-    }
-    int cnt = 1;
-    for(int i=1; i<n; i++){
-       if(v[i] != v[i-1]){
-            cnt++;
-       }
-    }
-    cout<<cnt;
+    long long int n;cin>>n;
+    if (n % 2 == 0) cout<<n/2;
+    else cout<< -(n+1)/2;
     return 0;
 }
