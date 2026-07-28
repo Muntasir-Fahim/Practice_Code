@@ -11,22 +11,17 @@ using namespace std;
 
 int main() 
 {
-    int r,c,tst=0;
-    cin>>r>>c;
-    int arr[r][c];
-    for(int i=0;i<r;i++){
-        for(int j=0;j<c;j++){
-            if(i % 2 == 0) cout<<"#";
-            else if((i+1) % 4 == 0){
-                if(j == 0) cout<<"#";
-                else cout<<".";
-            }
-            else{
-                if(j == c-1) cout<<"#";
-                else cout<<".";
-            }
-        }
-        cout<<endl;
+    int n;cin>>n;
+    vector<int>v(n);
+    for(int i=0; i<n; i++){
+        cin>>v[i];
     }
+    int cnt = 1;
+    for(int i=1; i<n; i++){
+       if(v[i] != v[i-1]){
+            cnt++;
+       }
+    }
+    cout<<cnt;
     return 0;
 }
