@@ -1,6 +1,6 @@
 #include <iostream>
-#include<vector>
-// #include <string>
+//#include<vector>
+#include <string>
 // #include <algorithm>        
 // #include<set>
 // #include<list>
@@ -11,34 +11,26 @@ using namespace std;
 
 int main() 
 {
-    int n;cin>>n;
-    vector<int> v(n);
-    for(int i=0; i<n; i++){
-        cin>>v[i];
-    }
-    int i = 0;
-    int j = n-1;
-    int srj = 0,dima = 0,cnt = 1;
-    while (i <= j)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n,t;
+    cin>>n>>t;
+    string str;cin>>str;
+    while (t--)
     {
-        if(v[i] >= v[j]){
-            if(cnt % 2 == 1){
-                srj += v[i];
-            }else{
-                dima += v[i];
+        for(int i=0; i<n; ){
+            if(str[i] == 'B' && str[i+1] == 'G'){
+                char temp = str[i];
+                str[i] = str[i+1];
+                str[i+1] = temp;
+                i += 2;
             }
-            i++;
-            cnt++;
-        }else{
-            if(cnt % 2 == 1){
-                srj += v[j];
-            }else{
-                dima += v[j];
+            else{
+                i++;
             }
-            j--;
-            cnt++;
         }
     }
-    cout<<srj<<" "<<dima;
+    cout<<str;
     
 }
