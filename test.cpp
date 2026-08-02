@@ -1,7 +1,7 @@
 #include <iostream>
+#include<vector>
 // #include <string>
 // #include <algorithm>        
-// #include<vector>
 // #include<set>
 // #include<list>
 // #include<unordered_map>
@@ -11,13 +11,34 @@ using namespace std;
 
 int main() 
 {
-    int t;cin>>t;
-    while(t--){
-        int n;cin>>n;
-        if(n <= 2) cout<<"0"<<endl;
-        else if(n % 2 == 0){
-            cout<<n/2-1<<endl;
-        }
-        else cout<<n/2<<endl;
+    int n;cin>>n;
+    vector<int> v(n);
+    for(int i=0; i<n; i++){
+        cin>>v[i];
     }
+    int i = 0;
+    int j = n-1;
+    int srj = 0,dima = 0,cnt = 1;
+    while (i <= j)
+    {
+        if(v[i] >= v[j]){
+            if(cnt % 2 == 1){
+                srj += v[i];
+            }else{
+                dima += v[i];
+            }
+            i++;
+            cnt++;
+        }else{
+            if(cnt % 2 == 1){
+                srj += v[j];
+            }else{
+                dima += v[j];
+            }
+            j--;
+            cnt++;
+        }
+    }
+    cout<<srj<<" "<<dima;
+    
 }
