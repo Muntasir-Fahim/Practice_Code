@@ -1,7 +1,7 @@
 #include <iostream>
-#include<vector>
-//#include <string>
-#include <algorithm>        
+//#include<vector>
+#include <string>
+//#include <algorithm>        
 // #include<set>
 // #include<list>
 // #include<unordered_map>
@@ -9,7 +9,9 @@
 
 using namespace std;
 
-//#define endl '\n'
+#define endl '\n'
+#define codn0(x) int i=0; i<(x); i++
+#define codn1(x) int i=1; i<(x); i++
 
 int main() 
 {
@@ -19,18 +21,31 @@ int main()
     int t;cin>>t;
     while (t--)
     {
-        vector<int> v(3);
-        for(int i=0; i<3; i++){
-            cin>>v[i];
+        int n;cin>>n;
+        string str;
+        cin>>str;
+        // string cmp;
+        // cmp += str[0];
+        int org = 1;
+        for(int i=1;i<n;i++){
+            if(str[i] != str[i-1]){
+                org++;
+            }
         }
-        int cnt = 0;
-        while(v[0] != v[1] && v[0] != v[2] && v[1] != v[2]){
-            sort(v.begin(),v.end());
-            v[0] += 1;
-            v[2] -= 1;
-            cnt++;
+        //cout<<org<<" ";
+        //int len = cmp.length();
+        int reduc = 0;
+        //cout<<cmp<<" ";
+        for(codn1(n-1)){
+            if(str[i-1] == str[i+1] && str[i] != str[i-1])
+                reduc = max(reduc,2);
+            else if(str[i-1] != str[i] && str[i] != str[i+1] && str[i-1] != str[i+1]){
+                reduc = max(reduc,1);
+            }
         }
-        cout<<cnt<<endl;
+        cout<<org-reduc<<endl;
+        
+        
     }
     
     
