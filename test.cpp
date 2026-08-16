@@ -1,6 +1,6 @@
 #include <iostream>
 #include<vector>
-//#include <string>
+#include <string>
 //#include <algorithm>        
 // #include<set>
 // #include<list>
@@ -19,19 +19,13 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    vi v(4);
-    for(codn0(4)){
-        cin>>v[i];
+    string a,b;
+    cin>>a>>b;
+    int len = a.length();
+    for(codn0(len)){
+        if(a[i] == b[i]) cout<<"0";
+        else cout<<"1";
     }
-
-    int dpt = 0;
-
-    for(codn1(4)){
-        if(v[i] == v[i-1]) dpt++;
-    }
-
-    cout<<dpt;
-    
 
         
     
