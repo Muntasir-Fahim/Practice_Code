@@ -45,7 +45,20 @@ int main()
             }
         }
         
-        cout<<maxElement;
+        int other = n - maxFreq;
+
+        int osum = 0;
+        for(codn0(n)){
+           // if(v[i] == maxElement) continue;
+            osum += v[i];
+        }
+        if(maxFreq > 1){
+            osum -= maxFreq * maxElement;
+            cout<<osum + min(maxFreq,other+2) * maxElement<<endl;
+            
+        } 
+        else cout<<osum<<endl;
+
 
         
     }
