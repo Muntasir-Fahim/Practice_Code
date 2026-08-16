@@ -5,7 +5,7 @@
 // #include<set>
 // #include<list>
 // #include<unordered_map>
-#include<map>
+//#include<map>
 
 using namespace std;
 
@@ -18,50 +18,23 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    
-    int t;cin>>t;
-    while (t--)
-    {
-        int n;cin>>n;
-        vi v(n);
-        for(codn0(n)){
-            cin>>v[i];
-            
-        }
 
-        map<int,int> mp;
-        
-        for(codn0(n)){
-            mp[v[i]]++;
-        }
-
-        int maxFreq = 0;
-        int maxElement;
-
-        for(auto x:mp){
-            if(x.second > maxFreq){
-                maxFreq = x.second;
-                maxElement = x.first;
-            }
-        }
-        
-        int other = n - maxFreq;
-
-        int osum = 0;
-        for(codn0(n)){
-           // if(v[i] == maxElement) continue;
-            osum += v[i];
-        }
-        if(maxFreq > 1){
-            osum -= maxFreq * maxElement;
-            cout<<osum + min(maxFreq,other+2) * maxElement<<endl;
-            
-        } 
-        else cout<<osum<<endl;
-
-
-        
+    vi v(4);
+    for(codn0(4)){
+        cin>>v[i];
     }
+
+    int dpt = 0;
+
+    for(codn1(4)){
+        if(v[i] == v[i-1]) dpt++;
+    }
+
+    cout<<dpt;
+    
+
+        
+    
     
     
 }
