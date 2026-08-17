@@ -1,8 +1,8 @@
 #include <iostream>
-#include<vector>
+//#include<vector>
 //#include <string>
 //#include <algorithm>        
-#include<set>
+//#include<set>
 // #include<list>
 // #include<unordered_map>
 //#include<map>
@@ -20,14 +20,14 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    vll v(4);
-    for(codn0(4)){
-        cin>>v[i];
+    int t;cin>>t;
+    int cnt = 0;
+    while(t--){
+        int a,b;cin>>a>>b;
+        if(b-a >= 2) cnt++;
     }
 
-    set<int> s(v.begin(),v.end());
-    
-    cout<<4 - s.size();
+    cout<<cnt;
         
     
     
