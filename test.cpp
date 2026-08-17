@@ -1,5 +1,5 @@
 #include <iostream>
-//#include<vector>
+#include<vector>
 //#include <string>
 //#include <algorithm>        
 //#include<set>
@@ -19,17 +19,18 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    
+    int n;cin>>n;
 
-    int t;cin>>t;
-    int cnt = 0;
-    while(t--){
-        int a,b;cin>>a>>b;
-        if(b-a >= 2) cnt++;
+    vi v(n);
+    for(codn0(n)){
+        cin>>v[i];
     }
 
-    cout<<cnt;
-        
-    
-    
-    
+    for(int i=1; i<=n; i++){
+        for(int j=0; j<n; j++){
+            if(v[j] == i) cout<<j+1<<" ";
+        }
+    }
+
 }
