@@ -1,6 +1,6 @@
 #include <iostream>
-#include<vector>
-//#include <string>
+//#include<vector>
+#include <string>
 //#include <algorithm>        
 //#include<set>
 // #include<list>
@@ -21,16 +21,24 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int a,b,c,d,n,cnt = 0;
-    cin>>a>>b>>c>>d>>n;
-    for(codn1e(n)){
-        if(i % a == 0) continue;
-        else if(i % b == 0) continue;
-        else if(i % c == 0) continue;
-        else if(i % d == 0) continue;
-        else cnt++;
+    string s;
+    //cin>>s;
+    getline(cin,s);
+    int len = s.length();
+
+    int seen[256] ={0};
+
+    for(int i=1; i<len-1; i += 3){
+        seen[s[i]]++;
+    }
+    
+    
+    int dist = 0;
+
+    for(codn0(256)){
+        if(seen[i] != 0) dist++;
     }
 
-    cout<<n - cnt;
+    cout<<dist;
 
 }
