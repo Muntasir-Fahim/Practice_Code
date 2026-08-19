@@ -22,17 +22,19 @@ int main()
     cin.tie(NULL);
     
     int n;cin>>n;
-    vector<pair<int,int>> v(n);
+    vi v(n);
     for(codn0(n)){
-        cin>>v[i].first>>v[i].second;
+        cin>>v[i];
     }
-    int cnt=0;
+    int cnt=0,man=0;
     for(codn0(n)){
-        for(int j=0; j<n; j++){
-            if(v[i].first == v[j].second) cnt++;
+        if(v[i] > 0){
+            man += v[i];
+        }else{
+            if(man == 0) cnt++;
+            else man += v[i];
         }
     }
-
     cout<<cnt;
 
 }
