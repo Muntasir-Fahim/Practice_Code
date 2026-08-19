@@ -1,5 +1,5 @@
 #include <iostream>
-//#include<vector>
+#include<vector>
 #include <string>
 //#include <algorithm>        
 //#include<set>
@@ -21,24 +21,18 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    string s;
-    //cin>>s;
-    getline(cin,s);
-    int len = s.length();
-
-    int seen[256] ={0};
-
-    for(int i=1; i<len-1; i += 3){
-        seen[s[i]]++;
+    int n;cin>>n;
+    vector<pair<int,int>> v(n);
+    for(codn0(n)){
+        cin>>v[i].first>>v[i].second;
     }
-    
-    
-    int dist = 0;
-
-    for(codn0(256)){
-        if(seen[i] != 0) dist++;
+    int cnt=0;
+    for(codn0(n)){
+        for(int j=0; j<n; j++){
+            if(v[i].first == v[j].second) cnt++;
+        }
     }
 
-    cout<<dist;
+    cout<<cnt;
 
 }
