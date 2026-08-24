@@ -21,19 +21,13 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int n;cin>>n;
-    vi v(n);
-    for(codn0(n)){
-        cin>>v[i];
-    }
-    int cnt=0,man=0;
-    for(codn0(n)){
-        if(v[i] > 0){
-            man += v[i];
-        }else{
-            if(man == 0) cnt++;
-            else man += v[i];
-        }
+    int n,time;
+    cin>>n>>time;
+    int tl = 240 - time;
+    int cnt = 0,sum = 0;
+    for(codn1e(n)){
+        sum += i*5;
+        if(sum <= tl) cnt++;
     }
     cout<<cnt;
 
