@@ -1,7 +1,7 @@
 #include <iostream>
-#include<vector>
+//#include<vector>
 #include <string>
-//#include <algorithm>        
+#include <algorithm>        
 //#include<set>
 // #include<list>
 // #include<unordered_map>
@@ -21,14 +21,19 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int n,time;
-    cin>>n>>time;
-    int tl = 240 - time;
-    int cnt = 0,sum = 0;
-    for(codn1e(n)){
-        sum += i*5;
-        if(sum <= tl) cnt++;
+    int t; cin>>t;
+    while (t--)
+    {
+        int n;cin>>n;
+        string s;
+        cin>>s;
+        sort(s.begin(),s.end());
+        int cnt = 2;
+        for(codn1(n)){
+            if(s[i] != s[i-1]) cnt +=2;
+            else cnt++;
+        }
+        cout<<cnt<<endl;
     }
-    cout<<cnt;
-
+    
 }
