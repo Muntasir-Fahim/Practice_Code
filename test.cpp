@@ -1,11 +1,11 @@
 #include <iostream>
-//#include<vector>
-#include <string>
+#include<vector>
+//#include <string>
 #include <algorithm>        
-//#include<set>
+#include<set>
 // #include<list>
 // #include<unordered_map>
-//#include<map>
+#include<map>
 
 using namespace std;
 
@@ -22,18 +22,29 @@ int main()
     cin.tie(NULL);
     
     int t; cin>>t;
-    while (t--)
-    {
+    while(t--){
         int n;cin>>n;
-        string s;
-        cin>>s;
-        sort(s.begin(),s.end());
-        int cnt = 2;
-        for(codn1(n)){
-            if(s[i] != s[i-1]) cnt +=2;
-            else cnt++;
+        vi v(n);
+        for(codn0(n)){
+            cin>>v[i];
         }
-        cout<<cnt<<endl;
+        sort(v.begin(),v.end());
+        v.erase(unique(v.begin(),v.end()),v.end());
+        int len = v.size();
+        int cnt=1;
+        int res = 1;
+        for(int i=1; i<len; i++){
+            if(v[i] == v[i-1]+1) {
+                //cout<<i<<" ";
+                cnt++;
+            }
+            else{
+                cnt = 1;
+            }
+            res = max(res,cnt);
+            //cout<<cnt<<" "<<res<<endl;
+        }
+        cout<<res<<endl;
     }
     
 }
