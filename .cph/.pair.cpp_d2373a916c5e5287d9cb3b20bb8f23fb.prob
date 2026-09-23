@@ -1,0 +1,1 @@
+{"name":"Local: pair","url":"f:\\Code\\Test\\pair.cpp","tests":[{"id":1790171867826,"input":"(()(()))\n","output":"()(()())\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Code\\Test\\pair.cpp","group":"local","local":true}
