@@ -1,11 +1,12 @@
-#include <iostream>
-#include<vector>
-//#include <string>
-#include <algorithm>        
-#include<set>
-// #include<list>
-// #include<unordered_map>
-#include<map>
+#include<bits/stdc++.h>
+// #include <iostream>
+// #include<vector>
+// //#include <string>
+// #include <algorithm>        
+// #include<set>
+// // #include<list>
+// // #include<unordered_map>
+// #include<map>
 
 using namespace std;
 
@@ -21,30 +22,63 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int t; cin>>t;
-    while(t--){
-        int n;cin>>n;
-        vi v(n);
-        for(codn0(n)){
-            cin>>v[i];
+    int highest,t;
+    cin>>highest>>t;
+    // vector<int> freq(3000000,0);
+    vector<pair<int,bool>> order;
+    vector<vector<int>>appTrack(highest+1);
+    int unread = 0;
+    int last3 = 0;
+    while (t--)
+    {
+        int instruction, app;
+        cin>>instruction>>app;
+        if(instruction == 1){
+            //freq[app]++;
+            appTrack[app].push_back(order.size());
+            order.push_back({app,false});
+            unread++;
         }
-        sort(v.begin(),v.end());
-        v.erase(unique(v.begin(),v.end()),v.end());
-        int len = v.size();
-        int cnt=1;
-        int res = 1;
-        for(int i=1; i<len; i++){
-            if(v[i] == v[i-1]+1) {
-                //cout<<i<<" ";
-                cnt++;
+        else if(instruction == 2){
+            //freq[app] = 0;
+            for(auto u : appTrack[app]){
+                if(order[u].first == app && !order[u].second) {
+                    order[u].second = true;
+                    unread--;
+                }
             }
-            else{
-                cnt = 1;
-            }
-            res = max(res,cnt);
-            //cout<<cnt<<" "<<res<<endl;
+            appTrack[app].clear();
+            // for(int i=0; i<(int)order.size(); i++){
+            //     if(order[i].first == app && !order[i].second) {
+            //         order[i].second = true;
+            //         unread--;
+            //     }
+            // }
         }
-        cout<<res<<endl;
+        else{
+            while (last3 < app)
+            {
+                if(order[last3].second == false) {
+                    // freq[order[i].first]=0;
+                    order[last3].second=true;
+                    unread--;
+                }
+                last3++;
+            }
+            
+        }
+
+        // int cnt=0;
+        // for(auto u: order){
+        //     if(u.second == false) cnt++;
+        // }
+        cout<<unread<<endl;
+
+        //cout << accumulate(freq.begin(),freq.end(),0)<<endl;
+
+
+
     }
+    
     
 }
