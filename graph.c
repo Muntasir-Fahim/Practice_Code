@@ -9,6 +9,7 @@ struct Node{
 };
 
 int totalWeight = 0;
+int totalPath = 0;
 
 struct graph{
     struct Node *nodeList[100];
@@ -74,6 +75,7 @@ void findpath (int s, int d, int *path, int pncount)
         path[pncount] = d;
         pncount++;
         printpath (path, pncount);
+        totalPath++;
         return;
     }
     else
@@ -110,5 +112,6 @@ int main(){
         addNeighbour(n2, n1,weight);
     }
     findpath (1, 5, path, 0);
+    printf("\n Total path = %d",totalPath);
 
 }
