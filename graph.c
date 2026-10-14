@@ -5,7 +5,10 @@ struct Node{
     int nodeId;
     int ns[100];
     int ncount;
+    int weight[100];
 };
+
+int totalWeight = 0;
 
 struct graph{
     struct Node *nodeList[100];
@@ -33,7 +36,7 @@ struct Node * getNode(int id){
     return NULL;
 }
 
-void addNeighbour(int mainNode, int nei){
+void addNeighbour(int mainNode, int nei,int weight){
     struct Node *p = getNode(mainNode);
 
     int i;
@@ -43,21 +46,69 @@ void addNeighbour(int mainNode, int nei){
     }
 
     p->ns[i] = nei;
+    p -> weight[i] = weight;
     p->ncount++;
+}
+void printpath (int *path, int pncount)
+{
+    printf ("\nPath: ");
+    for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
+    printf(" || Total weight =  %d",totalWeight);
+    //totalWeight = 0;
+}
+
+int isinpath (int * path, int pncount, int n)
+{
+    for (int i =0;i<pncount;i++)
+    {
+        if (path[i]==n) return 1;
+    }
+    return 0;
+}
+
+
+void findpath (int s, int d, int *path, int pncount)
+{
+    if (s == d)
+    {
+        path[pncount] = d;
+        pncount++;
+        printpath (path, pncount);
+        return;
+    }
+    else
+    {
+        int ip = isinpath (path, pncount, s);
+        if (ip == 1) return;
+        else
+        {
+            path[pncount] = s;
+            pncount = pncount+1;
+
+            struct Node *p = getNode (s);
+            for (int i =0;i<p->ncount;i++)
+            {
+                int nei = p->ns[i];
+                totalWeight += p->weight[i];
+                findpath(nei, d, path, pncount);
+                totalWeight -= p->weight[i];
+            }
+        }
+    }
 }
 
 int main(){
-    int edgecount, n1, n2;
+    int edgecount, n1, n2,weight;
     int path[100];
     scanf ("%d", &edgecount);
     for (int i=0; i<edgecount; i++)
     {
-        scanf ("%d%d", &n1, &n2);
-        createnode (n1);
-        createnode (n2);
-        addneighbour(n1, n2);
-        addneighbour(n2, n1);
+        scanf ("%d%d%d", &n1, &n2,&weight);
+        createNode (n1);
+        createNode (n2);
+        addNeighbour(n1, n2,weight);
+        addNeighbour(n2, n1,weight);
     }
-
+    findpath (1, 5, path, 0);
 
 }

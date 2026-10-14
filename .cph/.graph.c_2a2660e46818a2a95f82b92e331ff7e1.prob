@@ -1,0 +1,1 @@
+{"name":"Local: graph","url":"f:\\Code\\Test\\graph.c","tests":[{"id":1791917732345,"input":"10\n1 2 1\n1 3 2\n3 4 3\n4 7 4\n2 4 5\n2 7 3\n4 5 6\n4 6 7\n5 7 2\n6 7 8","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\Code\\Test\\graph.c","group":"local","local":true}
