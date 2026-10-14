@@ -10,6 +10,9 @@ struct Node{
 
 int totalWeight = 0;
 int totalPath = 0;
+int current = 9999;
+int currentPath[100];
+int pathIdx=0;
 
 struct graph{
     struct Node *nodeList[100];
@@ -50,12 +53,21 @@ void addNeighbour(int mainNode, int nei,int weight){
     p -> weight[i] = weight;
     p->ncount++;
 }
+
 void printpath (int *path, int pncount)
 {
     printf ("\nPath: ");
     for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
-    printf(" || Total weight =  %d",totalWeight);
-    //totalWeight = 0;
+    printf("\n%d",totalWeight);
+    
+    if(totalWeight < current){
+        current = totalWeight;
+        int i;
+        for(i=0;i<pncount;i++){
+            currentPath[i] = path[i];
+        }
+        pathIdx = i;
+    }
 }
 
 int isinpath (int * path, int pncount, int n)
@@ -99,6 +111,14 @@ void findpath (int s, int d, int *path, int pncount)
     }
 }
 
+void pathPrint(int *p){
+    printf("\nShortest path: ");
+    int i=0;
+    for(int i=0; i<pathIdx; i++){
+        printf("%d ",p[i]);
+    }
+}
+
 int main(){
     int edgecount, n1, n2,weight;
     int path[100];
@@ -113,5 +133,6 @@ int main(){
     }
     findpath (1, 5, path, 0);
     printf("\n Total path = %d",totalPath);
+    pathPrint(currentPath);
 
 }
