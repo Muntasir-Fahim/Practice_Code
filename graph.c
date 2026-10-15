@@ -57,9 +57,9 @@ void addNeighbour(int mainNode, int nei,int weight){
 
 void printpath (int *path, int pncount)
 {
-    // printf ("\nPath: ");
-    // for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
-    // printf("\n%d",totalWeight);
+    printf ("\nPath: ");
+    for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
+    printf("\n%d",totalWeight);
     
     if(totalWeight < minWeight){
         minWeight = totalWeight;
@@ -72,14 +72,15 @@ void printpath (int *path, int pncount)
     if(pncount - 1 < minWeight2){
         minWeight2 = pncount - 1;
     }
-    for (int i=0;i<pncount;i++){
-        if(path[i] == 3){
-            printf("\nPath through 3: ");
-            for (int j=0;j<pncount;j++){
-                printf("%d ",path[j]);
-            }
-        }
-    }
+    // //path through specific node
+    // for (int i=0;i<pncount;i++){
+    //     if(path[i] == 3){
+    //         printf("\nPath through 3: ");
+    //         for (int j=0;j<pncount;j++){
+    //             printf("%d ",path[j]);
+    //         }
+    //     }
+    // }
 }
 
 int isinpath (int * path, int pncount, int n)
@@ -162,6 +163,14 @@ void printMinPath(int s, int d, int *path, int pncount){
     }
 }
 
+void checkDegree(int id){
+    struct Node *p = getNode(id);
+    if(p != NULL) printf("\nDegree of %d = %d",id,p->ncount);
+    else printf("\nNot found");
+    
+    
+}
+
 int main(){
     int edgecount, n1, n2,weight;
     int path[100];
@@ -178,5 +187,6 @@ int main(){
     printf("\n Total path = %d",totalPath);
     pathPrint(minWeightPath);
     printMinPath (1, 5, path, 0);
+    checkDegree(1);
 
 }
