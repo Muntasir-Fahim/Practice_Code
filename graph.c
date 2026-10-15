@@ -57,9 +57,9 @@ void addNeighbour(int mainNode, int nei,int weight){
 
 void printpath (int *path, int pncount)
 {
-    printf ("\nPath: ");
-    for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
-    printf("\n%d",totalWeight);
+    // printf ("\nPath: ");
+    // for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
+    // printf("\n%d",totalWeight);
     
     if(totalWeight < minWeight){
         minWeight = totalWeight;
@@ -71,11 +71,14 @@ void printpath (int *path, int pncount)
     }
     if(pncount - 1 < minWeight2){
         minWeight2 = pncount - 1;
-        // int i;
-        // for(i=0;i<pncount;i++){
-        //     shortPath[i] = path[i];
-        // }
-        // pathIdx2 = i;
+    }
+    for (int i=0;i<pncount;i++){
+        if(path[i] == 3){
+            printf("\nPath through 3: ");
+            for (int j=0;j<pncount;j++){
+                printf("%d ",path[j]);
+            }
+        }
     }
 }
 
@@ -113,9 +116,7 @@ void findpath (int s, int d, int *path, int pncount)
             {
                 int nei = p->ns[i];
                 totalWeight += p->weight[i];
-                //edgeCount++;
                 findpath(nei, d, path, pncount);
-                //edgeCount--;
                 totalWeight -= p->weight[i];
             }
         }
