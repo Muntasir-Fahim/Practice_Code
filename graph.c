@@ -10,9 +10,10 @@ struct Node{
 
 int totalWeight = 0;
 int totalPath = 0;
-int current = 9999;
-int currentPath[100];
+int minWeight = 9999;
+int minWeightPath[100];
 int pathIdx=0;
+int minWeight2 = 9999;
 
 struct graph{
     struct Node *nodeList[100];
@@ -60,13 +61,21 @@ void printpath (int *path, int pncount)
     for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
     printf("\n%d",totalWeight);
     
-    if(totalWeight < current){
-        current = totalWeight;
+    if(totalWeight < minWeight){
+        minWeight = totalWeight;
         int i;
         for(i=0;i<pncount;i++){
-            currentPath[i] = path[i];
+            minWeightPath[i] = path[i];
         }
         pathIdx = i;
+    }
+    if(pncount - 1 < minWeight2){
+        minWeight2 = pncount - 1;
+        // int i;
+        // for(i=0;i<pncount;i++){
+        //     shortPath[i] = path[i];
+        // }
+        // pathIdx2 = i;
     }
 }
 
@@ -104,7 +113,9 @@ void findpath (int s, int d, int *path, int pncount)
             {
                 int nei = p->ns[i];
                 totalWeight += p->weight[i];
+                //edgeCount++;
                 findpath(nei, d, path, pncount);
+                //edgeCount--;
                 totalWeight -= p->weight[i];
             }
         }
@@ -112,10 +123,41 @@ void findpath (int s, int d, int *path, int pncount)
 }
 
 void pathPrint(int *p){
-    printf("\nShortest path: ");
+    printf("\nShortest path by weight: ");
     int i=0;
     for(int i=0; i<pathIdx; i++){
         printf("%d ",p[i]);
+    }
+}
+
+void printMinPath(int s, int d, int *path, int pncount){
+    if (s == d)
+    {
+        path[pncount] = d;
+        pncount++;
+        if(pncount -1 == minWeight2){
+            printf ("\nShortest Path by edge: ");
+            for (int i=0;i<pncount;i++) { printf (" %d ", path[i]); }
+        }
+        return;
+    }
+    else
+    {
+        int ip = isinpath (path, pncount, s);
+        if (ip == 1) return;
+        else
+        {
+            path[pncount] = s;
+            pncount = pncount+1;
+
+            struct Node *p = getNode (s);
+            for (int i =0;i<p->ncount;i++)
+            {
+                int nei = p->ns[i];
+                printMinPath(nei, d, path, pncount);
+
+            }
+        }
     }
 }
 
@@ -133,6 +175,7 @@ int main(){
     }
     findpath (1, 5, path, 0);
     printf("\n Total path = %d",totalPath);
-    pathPrint(currentPath);
+    pathPrint(minWeightPath);
+    printMinPath (1, 5, path, 0);
 
 }
